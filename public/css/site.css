@@ -1,0 +1,59 @@
+/* 植物探險家：配色與這一站專屬的樣式。通用樣式在 /css/base.css（工具產生，不要手改）。
+   變數名稱沿用通用核心（--green 是主色、--orange 是強調色），這裡只換數值：葉綠＋花粉紅。 */
+:root{
+  --bg:#f5f9f2;--card:#fff;--ink:#1f2d22;--ink2:#56685a;--line:#d6e6d2;
+  --green:#2f7d4f;--green-d:#1f5c38;--green-l:#e3f2e6;--orange:#d0567f;--orange-l:#fbe9f0;
+  --shadow:0 3px 0 rgba(30,60,35,.12),0 8px 24px rgba(30,60,35,.08);--photo-bg:#eef4ec;
+}
+.hero,.w-hero{background:linear-gradient(135deg,#e3f2e6,#fbe9f0 60%,#f1f5e3)}
+
+/* 卡片上的類別與用途標籤 */
+.tbadge{display:inline-block;border-radius:999px;padding:0 9px;font-size:.75rem;font-weight:700;color:#fff;white-space:nowrap}
+.ubadge{display:inline-block;border:2px solid var(--line);background:#fff;border-radius:999px;padding:0 8px;font-size:.78rem;font-weight:700;white-space:nowrap}
+.acard .meta{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.note{background:var(--orange-l);border-radius:12px;padding:8px 12px;font-size:.92rem;margin:8px 0}
+select.inline{width:auto;max-width:none;min-height:40px;padding:4px 10px}
+.fact.intro .one{font-weight:800;font-size:1.15rem;margin-bottom:.4em}
+.hints{margin:0 0 12px;padding-left:1.2em}
+.hints li{margin:.2em 0}
+
+/* 這個月開什麼花：月份按鈕、卡片上的 12 格月份條 */
+.months{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.mstrip{display:inline-flex;gap:2px;vertical-align:middle}
+.mstrip i{display:block;width:9px;height:12px;border-radius:2px;background:#e3e8e1}
+.mstrip i.l1{background:#f2b8cc}
+.mstrip i.l2{background:var(--orange)}
+.mstrip i.now{outline:2px solid var(--ink);outline-offset:1px}
+.acard .mstrip{display:flex;margin:6px 0 2px}
+.acard.nolink{cursor:default}
+.bl{display:inline-block;border-radius:999px;padding:0 9px;font-size:.78rem;font-weight:800;margin-top:2px}
+.bl.full{background:var(--orange);color:#fff}
+.bl.some{background:var(--orange-l);color:#9a2f55}
+.legend{font-size:.85rem;color:var(--ink2);margin:14px 0}
+.legend .mstrip{margin:0 2px 0 8px}
+
+/* 逛園區看植物（/map）：一條從大門到出口的小徑，館區左右交錯（照動物探險家） */
+.trail{position:relative;display:flex;flex-direction:column;gap:18px;max-width:720px;margin:0 auto;padding:8px 0 16px}
+.trail::before{content:"";position:absolute;left:50%;top:24px;bottom:24px;border-left:6px dotted #c9dcb8;transform:translateX(-50%)}
+.gate{position:relative;align-self:center;background:var(--green-l);border:3px solid var(--green);border-radius:999px;padding:8px 22px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.gate span{font-size:1.8rem;line-height:1}
+.gate.end{background:var(--orange-l);border-color:var(--orange)}
+.stop{position:relative;width:min(100%,360px);display:flex;gap:12px;align-items:center;text-align:left;font:inherit;color:inherit;background:var(--card);border:3px solid var(--c);border-radius:var(--radius);box-shadow:var(--shadow);padding:10px;cursor:pointer;transition:transform .12s}
+.stop:hover{transform:translateY(-3px)}
+.stop.l{align-self:flex-start}
+.stop.r{align-self:flex-end}
+.stop .cover{flex:none;width:84px;height:64px;border-radius:12px;overflow:hidden;background:var(--photo-bg);display:block}
+.stop .cover .photo,.stop .cover .ph{width:100%;height:100%;object-fit:cover;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.stop .txt{flex:1;min-width:0}
+.stop b{display:block;font-size:1.1rem}
+.stop small{color:var(--ink2)}
+.stop .bar{display:block;height:8px;border-radius:99px;background:var(--line);margin-top:6px;overflow:hidden}
+.stop .bar i{display:block;height:100%;background:var(--c)}
+.stop.full{background:var(--green-l)}
+.acard.seen{border-color:var(--green)}
+a.acard{text-decoration:none}
+@media (max-width:600px){
+  .trail::before{left:22px;transform:none}
+  .stop.l,.stop.r{align-self:stretch;width:auto;margin-left:40px}
+  .gate{align-self:flex-start;margin-left:0}
+}
